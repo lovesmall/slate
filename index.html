@@ -4,10 +4,8 @@
     <meta charset="utf-8">
     <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <title>API Reference</title>
+    <title>Avetics Tango API Reference</title>
 
-    <link href="stylesheets/screen.css" rel="stylesheet" media="screen" />
-    <link href="stylesheets/print.css" rel="stylesheet" media="print" />
     <style>
       .highlight table td { padding: 5px; }
 .highlight table pre { margin: 0; }
@@ -16,11 +14,11 @@
   background-color: #272822;
 }
 .highlight .err {
-  color: #151515;
-  background-color: #ac4142;
+  color: #272822;
+  background-color: #f92672;
 }
 .highlight .c, .highlight .cd, .highlight .cm, .highlight .c1, .highlight .cs {
-  color: #505050;
+  color: #75715e;
 }
 .highlight .cp {
   color: #f4bf75;
@@ -29,45 +27,45 @@
   color: #f4bf75;
 }
 .highlight .o, .highlight .ow {
-  color: #d0d0d0;
+  color: #f8f8f2;
 }
 .highlight .p, .highlight .pi {
-  color: #d0d0d0;
+  color: #f8f8f2;
 }
 .highlight .gi {
-  color: #90a959;
+  color: #a6e22e;
 }
 .highlight .gd {
-  color: #ac4142;
+  color: #f92672;
 }
 .highlight .gh {
-  color: #6a9fb5;
-  background-color: #151515;
+  color: #66d9ef;
+  background-color: #272822;
   font-weight: bold;
 }
 .highlight .k, .highlight .kn, .highlight .kp, .highlight .kr, .highlight .kv {
-  color: #aa759f;
+  color: #ae81ff;
 }
 .highlight .kc {
-  color: #d28445;
+  color: #fd971f;
 }
 .highlight .kt {
-  color: #d28445;
+  color: #fd971f;
 }
 .highlight .kd {
-  color: #d28445;
+  color: #fd971f;
 }
 .highlight .s, .highlight .sb, .highlight .sc, .highlight .sd, .highlight .s2, .highlight .sh, .highlight .sx, .highlight .s1 {
-  color: #90a959;
+  color: #a6e22e;
 }
 .highlight .sr {
-  color: #75b5aa;
+  color: #a1efe4;
 }
 .highlight .si {
-  color: #8f5536;
+  color: #cc6633;
 }
 .highlight .se {
-  color: #8f5536;
+  color: #cc6633;
 }
 .highlight .nn {
   color: #f4bf75;
@@ -79,32 +77,29 @@
   color: #f4bf75;
 }
 .highlight .na {
-  color: #6a9fb5;
+  color: #66d9ef;
 }
 .highlight .m, .highlight .mf, .highlight .mh, .highlight .mi, .highlight .il, .highlight .mo, .highlight .mb, .highlight .mx {
-  color: #90a959;
+  color: #a6e22e;
 }
 .highlight .ss {
-  color: #90a959;
+  color: #a6e22e;
 }
     </style>
+    <link href="stylesheets/screen.css" rel="stylesheet" media="screen" />
+    <link href="stylesheets/print.css" rel="stylesheet" media="print" />
       <script src="javascripts/all.js"></script>
   </head>
 
-  <body class="index" data-languages="[&quot;shell&quot;,&quot;ruby&quot;,&quot;python&quot;]">
+  <body class="index" data-languages="[]">
     <a href="#" id="nav-button">
       <span>
         NAV
-        <img src="images/navbar.png" />
+        <img src="images/navbar.png" alt="Navbar" />
       </span>
     </a>
     <div class="tocify-wrapper">
-      <img src="images/logo.png" />
-        <div class="lang-selector">
-              <a href="#" data-language-name="shell">shell</a>
-              <a href="#" data-language-name="ruby">ruby</a>
-              <a href="#" data-language-name="python">python</a>
-        </div>
+      <img src="images/logo.png" alt="Logo" />
         <div class="search">
           <input type="text" class="search" id="input-search" placeholder="Search">
         </div>
@@ -112,7 +107,6 @@
       <div id="toc">
       </div>
         <ul class="toc-footer">
-            <li><a href='#'>Sign Up for a Developer Key</a></li>
             <li><a href='https://github.com/tripit/slate'>Documentation Powered by Slate</a></li>
         </ul>
     </div>
@@ -121,148 +115,145 @@
       <div class="content">
         <h1 id="introduction">Introduction</h1>
 
-<p>Welcome to the Kittn API! You can use our API to access Kittn API endpoints, which can get information on various cats, kittens, and breeds in our database.</p>
+<p>This is API documentation is for <a href="http:tango.avetics.com">Avetics Tango</a>, which is a web system for managing drone and data. This API follows <a href="http://jsonapi.org/">JSON API</a> format.</p>
 
-<p>We have language bindings in Shell, Ruby, and Python! You can view code examples in the dark area to the right, and you can switch the programming language of the examples with the tabs in the top right.</p>
-
-<p>This example API documentation page was created with <a href="https://github.com/tripit/slate">Slate</a>. Feel free to edit it and use it as a base for your own API&rsquo;s documentation.</p>
+<p>It also includes a iOS app (coming soon) to capture and sync the photo with its position/orientation info to Tango.</p>
 
 <h1 id="authentication">Authentication</h1>
 
-<blockquote>
-<p>To authorize, use this code:</p>
-</blockquote>
-<pre class="highlight ruby"><code><span class="nb">require</span> <span class="s1">'kittn'</span>
+<h2 id="sign-up">Sign Up</h2>
 
-<span class="n">api</span> <span class="o">=</span> <span class="no">Kittn</span><span class="o">::</span><span class="no">APIClient</span><span class="p">.</span><span class="nf">authorize!</span><span class="p">(</span><span class="s1">'meowmeowmeow'</span><span class="p">)</span>
-</code></pre>
-<pre class="highlight python"><code><span class="kn">import</span> <span class="nn">kittn</span>
-
-<span class="n">api</span> <span class="o">=</span> <span class="n">kittn</span><span class="o">.</span><span class="n">authorize</span><span class="p">(</span><span class="s">'meowmeowmeow'</span><span class="p">)</span>
-</code></pre>
-<pre class="highlight shell"><code><span class="c"># With shell, you can just pass the correct header with each request</span>
-curl <span class="s2">"api_endpoint_here"</span>
-  -H <span class="s2">"Authorization: meowmeowmeow"</span>
-</code></pre>
-
-<blockquote>
-<p>Make sure to replace <code class="prettyprint">meowmeowmeow</code> with your API key.</p>
-</blockquote>
-
-<p>Kittn uses API keys to allow access to the API. You can register a new Kittn API key at our <a href="http://example.com/developers">developer portal</a>.</p>
-
-<p>Kittn expects for the API key to be included in all API requests to the server in a header that looks like the following:</p>
-
-<p><code class="prettyprint">Authorization: meowmeowmeow</code></p>
-
-<aside class="notice">
-You must replace <code>meowmeowmeow</code> with your personal API key.
-</aside>
-
-<h1 id="kittens">Kittens</h1>
-
-<h2 id="get-all-kittens">Get All Kittens</h2>
-<pre class="highlight ruby"><code><span class="nb">require</span> <span class="s1">'kittn'</span>
-
-<span class="n">api</span> <span class="o">=</span> <span class="no">Kittn</span><span class="o">::</span><span class="no">APIClient</span><span class="p">.</span><span class="nf">authorize!</span><span class="p">(</span><span class="s1">'meowmeowmeow'</span><span class="p">)</span>
-<span class="n">api</span><span class="p">.</span><span class="nf">kittens</span><span class="p">.</span><span class="nf">get</span>
-</code></pre>
-<pre class="highlight python"><code><span class="kn">import</span> <span class="nn">kittn</span>
-
-<span class="n">api</span> <span class="o">=</span> <span class="n">kittn</span><span class="o">.</span><span class="n">authorize</span><span class="p">(</span><span class="s">'meowmeowmeow'</span><span class="p">)</span>
-<span class="n">api</span><span class="o">.</span><span class="n">kittens</span><span class="o">.</span><span class="n">get</span><span class="p">()</span>
-</code></pre>
-<pre class="highlight shell"><code>curl <span class="s2">"http://example.com/api/kittens"</span>
-  -H <span class="s2">"Authorization: meowmeowmeow"</span>
-</code></pre>
-
-<blockquote>
-<p>The above command returns JSON structured like this:</p>
-</blockquote>
-<pre class="highlight json"><code><span class="p">[</span><span class="w">
-  </span><span class="p">{</span><span class="w">
-    </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Fluffums"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"breed"</span><span class="p">:</span><span class="w"> </span><span class="s2">"calico"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"fluffiness"</span><span class="p">:</span><span class="w"> </span><span class="mi">6</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"cuteness"</span><span class="p">:</span><span class="w"> </span><span class="mi">7</span><span class="w">
-  </span><span class="p">},</span><span class="w">
-  </span><span class="p">{</span><span class="w">
-    </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Max"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"breed"</span><span class="p">:</span><span class="w"> </span><span class="s2">"unknown"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"fluffiness"</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"cuteness"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="w">
-  </span><span class="p">}</span><span class="w">
-</span><span class="p">]</span><span class="w">
-</span></code></pre>
-
-<p>This endpoint retrieves all kittens.</p>
+<p>User can create a account. After this, user need to sign in to obtain token info.</p>
 
 <h3 id="http-request">HTTP Request</h3>
 
-<p><code class="prettyprint">GET http://example.com/api/kittens</code></p>
+<p><code class="prettyprint">POST http://tango.avetics.com/api/v1/auth</code></p>
 
-<h3 id="query-parameters">Query Parameters</h3>
+<blockquote>
+<p>JSON response:</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"3"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"users"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"user@avetics.com"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Narco"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"avatar-url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"url-link-of-a-user"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"created-at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-11-16T07:42:54Z"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<h3 id="post-form-parameters">Post Form Parameters</h3>
 
 <table><thead>
 <tr>
 <th>Parameter</th>
-<th>Default</th>
 <th>Description</th>
 </tr>
 </thead><tbody>
 <tr>
-<td>include_cats</td>
-<td>false</td>
-<td>If set to true, the result will also include cats.</td>
+<td>email</td>
+<td>User email address.</td>
 </tr>
 <tr>
-<td>available</td>
-<td>true</td>
-<td>If set to false, the result will include kittens that have already been adopted.</td>
+<td>name</td>
+<td>User name.</td>
+</tr>
+<tr>
+<td>password</td>
+<td>User email address.</td>
+</tr>
+<tr>
+<td>password_confirmation</td>
+<td>User password confirmation.</td>
 </tr>
 </tbody></table>
 
-<aside class="success">
-Remember — a happy kitten is an authenticated kitten!
+<aside class="notice">
+Info — User need to confirm the email before can sign in
 </aside>
 
-<h2 id="get-a-specific-kitten">Get a Specific Kitten</h2>
-<pre class="highlight ruby"><code><span class="nb">require</span> <span class="s1">'kittn'</span>
+<h2 id="sign-in">Sign In</h2>
 
-<span class="n">api</span> <span class="o">=</span> <span class="no">Kittn</span><span class="o">::</span><span class="no">APIClient</span><span class="p">.</span><span class="nf">authorize!</span><span class="p">(</span><span class="s1">'meowmeowmeow'</span><span class="p">)</span>
-<span class="n">api</span><span class="p">.</span><span class="nf">kittens</span><span class="p">.</span><span class="nf">get</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
-</code></pre>
-<pre class="highlight python"><code><span class="kn">import</span> <span class="nn">kittn</span>
+<p>Tango uses token to authenticate user. Post user &lsquo;email&rsquo; and &#39;password&rsquo; to sign in. You will receive token info contains <code class="prettyprint">access-token</code>, <code class="prettyprint">client</code> and <code class="prettyprint">uid</code> in the response. </p>
 
-<span class="n">api</span> <span class="o">=</span> <span class="n">kittn</span><span class="o">.</span><span class="n">authorize</span><span class="p">(</span><span class="s">'meowmeowmeow'</span><span class="p">)</span>
-<span class="n">api</span><span class="o">.</span><span class="n">kittens</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
-</code></pre>
-<pre class="highlight shell"><code>curl <span class="s2">"http://example.com/api/kittens/2"</span>
-  -H <span class="s2">"Authorization: meowmeowmeow"</span>
-</code></pre>
-
-<blockquote>
-<p>The above command returns JSON structured like this:</p>
-</blockquote>
-<pre class="highlight json"><code><span class="p">{</span><span class="w">
-  </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Max"</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"breed"</span><span class="p">:</span><span class="w"> </span><span class="s2">"unknown"</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"fluffiness"</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"cuteness"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre>
-
-<p>This endpoint retrieves a specific kitten.</p>
-
-<aside class="warning">Inside HTML code blocks like this one, you can&rsquo;t use Markdown, so use <code>&lt;code&gt;</code> blocks to denote code.</aside>
+<p><strong>Attach these token info in every subsequent request header for authentication.</strong></p>
 
 <h3 id="http-request">HTTP Request</h3>
 
-<p><code class="prettyprint">GET http://example.com/kittens/&lt;ID&gt;</code></p>
+<p><code class="prettyprint">POST http://tango.avetics.com/api/v1/auth/sign_in</code></p>
 
+<blockquote>
+<p>The response header include token info.</p>
+</blockquote>
+<pre class="highlight plaintext"><code>access-token: oSPkpQnk3b5nF7EU88USng
+client: qZE0ZBcIe2O49PNDpDgFrQ
+uid: user1@avetics.com
+</code></pre>
+<blockquote>
+<p>JSON response:</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"3"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"users"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"user@avetics.com"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Narco"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"avatar-url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"url-link-of-a-user"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"created-at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-11-16T07:42:54Z"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<h3 id="post-form-parameters">Post Form Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>email</td>
+<td>User email address.</td>
+</tr>
+<tr>
+<td>password</td>
+<td>User password.</td>
+</tr>
+</tbody></table>
+
+<aside class="notice">
+Info — the token info are in the response header, not body.
+</aside>
+
+<h1 id="user">User</h1>
+
+<h2 id="get-a-user">Get a User</h2>
+
+<h3 id="http-request">HTTP Request</h3>
+
+<p><code class="prettyprint">GET http://tango.avetics.com/api/v1/users/&lt;ID&gt;</code></p>
+
+<blockquote>
+<p>JSON response:</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"3"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"users"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"user@avetics.com"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Narco"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"avatar-url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"url-link-of-a-user"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"created-at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-11-16T07:42:54Z"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
 <h3 id="url-parameters">URL Parameters</h3>
 
 <table><thead>
@@ -273,15 +264,227 @@ Remember — a happy kitten is an authenticated kitten!
 </thead><tbody>
 <tr>
 <td>ID</td>
-<td>The ID of the kitten to retrieve</td>
+<td>The ID of the user to retrieve</td>
 </tr>
 </tbody></table>
 
+<aside class="success">
+Remember — pass in the token info in the request header.
+</aside>
+
+<h1 id="project">Project</h1>
+
+<h2 id="list-all-project">List All Project</h2>
+
+<h3 id="http-request">HTTP Request</h3>
+
+<p><code class="prettyprint">GET http://tango.avetics.com/api/v1/projects</code></p>
+
+<blockquote>
+<p>JSON response:</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"50"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"projects"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"api-project-1"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"due-date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-12-16T00:00:00.000Z"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"planning"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"created-at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-12-05T06:53:43Z"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"updated-at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-12-13T07:03:01Z"</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"51"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"projects"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"api-project-2"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"due-date"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"planning"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"created-at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-09-28T08:53:29Z"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"updated-at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-09-28T08:53:50Z"</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<h2 id="create-a-project">Create a Project</h2>
+
+<h3 id="http-request">HTTP Request</h3>
+
+<p><code class="prettyprint">POST http://tango.avetics.com/api/v1/projects</code></p>
+
+<blockquote>
+<p>JSON response:</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"3"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"users"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"user@avetics.com"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Narco"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"avatar-url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"url-link-of-a-user"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"created-at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-11-16T07:42:54Z"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<h3 id="post-form-parameters">Post Form Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>project[name]</td>
+<td>Project name</td>
+</tr>
+<tr>
+<td>project[status]</td>
+<td><code class="prettyprint">planning</code>, <code class="prettyprint">ongoing</code> or <code class="prettyprint">completed</code></td>
+</tr>
+<tr>
+<td>project[due-date]</td>
+<td>optional, format in <code class="prettyprint">YYYY-MM-DD</code></td>
+</tr>
+</tbody></table>
+
+<h2 id="get-a-project">Get a Project</h2>
+
+<h3 id="http-request">HTTP Request</h3>
+
+<p><code class="prettyprint">GET http://tango.avetics.com/api/v1/projects/&lt;ID&gt;</code></p>
+
+<blockquote>
+<p>JSON response:</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"50"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"projects"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"api-test-1"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"due-date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-12-16T00:00:00.000Z"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"planning"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"created-at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-12-05T06:53:43Z"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"updated-at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-12-13T07:03:01Z"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<h3 id="url-parameters">URL Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>ID</td>
+<td>The ID of the project to retrieve</td>
+</tr>
+</tbody></table>
+
+<h2 id="create-a-photo">Create a Photo</h2>
+
+<p>Create a photo for a project requires 3 steps.</p>
+
+<ol>
+<li>Get a AWS S3 Presigned Post from tango.</li>
+<li>Upload photo to AWS S3 using this presigned post. A S3 ID will be returned.</li>
+<li>Upload the attributes of this photo, including the S3 ID, to tango.</li>
+</ol>
+
+<p>Tango will then link the photo with the file uploaded in S3 and process it accordingly. </p>
+
+<h3 id="step-1">STEP 1</h3>
+
+<p>Get a AWS S3 Presigned Post from tango.</p>
+
+<h4 id="http-request">HTTP Request</h4>
+
+<p><code class="prettyprint">GET http://tango.avetics.com/api/v1/attachments/cache/presign</code></p>
+
+<blockquote>
+<p>STEP 1 JSON response:</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://avetics-tango.s3-ap-southeast-1.amazonaws.com"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"fields"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"key"</span><span class="p">:</span><span class="w"> </span><span class="s2">"cache/the-s3-id-of-this-file"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"acl"</span><span class="p">:</span><span class="w"> </span><span class="s2">"public-read"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"policy"</span><span class="p">:</span><span class="w"> </span><span class="s2">"eyJleHBpcmF0aW9uIjoiMjAxNi0xMi0xM1QxMTo0MjoxOFoiLCJjb25kaXRpb25zIjpbeyJidWNrZXQiOiJhdmV0aWNzLXRhbmdvIn0seyJrZXkiOiJaYWNoZS8wNWUxZWQzOWY3MzU4YzJjMGYyYzYyYzAwMWFlNTdkMiJ9LHsiYWNsIjoicHVibGljLXJlYWQifSxbImNvbnRlbnQtbGVuZ3RoLXJhbmdlIiwwLDUyNDI4ODAwXSx7IngtYW16LWNyZWRlbnRpYWwiOiJBS0lBSkZTS1VZSFU0V0taWlAzUS8yMDE2MTIxMy9hcC1zb3V0aGVhc3QtMS9zMy9hd3M0X3JlcXVlc3QifSx7IngtYW16LWFsZ29yaXRobSI6IkFXUzQtSE1BQy1TSEEyNTYifSx7IngtYW16LWRhdGUiOiIyMDE2MTIxM1QxMDQyMThaIn1dfQ=="</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"x-amz-credential"</span><span class="p">:</span><span class="w"> </span><span class="s2">"AKIAJFSKUYHU4WKEZP3Q/20161213/ap-southeast-1/s3/aws4_request"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"x-amz-algorithm"</span><span class="p">:</span><span class="w"> </span><span class="s2">"AWS4-HMAC-SHA256"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"x-amz-date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"20161213T104218Z"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"x-amz-signature"</span><span class="p">:</span><span class="w"> </span><span class="s2">"da21701e447a1835062e9bf202d54659a908ac23cd8c0e5266e7b936c4dabb17"</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<h3 id="step-2">STEP 2</h3>
+
+<p>Upload photo to AWS S3 using this presigned post. A S3 ID will be returned.</p>
+
+<h4 id="http-request">HTTP Request</h4>
+
+<p>Parse the returned presigned post (data) and upload photo to:</p>
+
+<p><code class="prettyprint">POST https://avetics-tango.s3-ap-southeast-1.amazonaws.com</code></p>
+
+<blockquote>
+<p>STEP 2 data format for photo upload request:</p>
+</blockquote>
+<pre class="highlight javascript"><code><span class="p">{</span>
+  <span class="nl">id</span><span class="p">:</span> <span class="nx">data</span><span class="p">.</span><span class="nx">formData</span><span class="p">.</span><span class="nx">key</span><span class="p">.</span><span class="nx">match</span><span class="p">(</span><span class="sr">/cache</span><span class="se">\/(</span><span class="sr">.+</span><span class="se">)</span><span class="sr">/</span><span class="p">)[</span><span class="mi">1</span><span class="p">],</span> <span class="c1">// we have to remove the prefix part</span>
+  <span class="nx">storage</span><span class="p">:</span> <span class="s1">'cache'</span><span class="p">,</span>
+  <span class="nx">metadata</span><span class="p">:</span> <span class="p">{</span>
+  <span class="nl">size</span><span class="p">:</span>      <span class="nx">data</span><span class="p">.</span><span class="nx">files</span><span class="p">[</span><span class="mi">0</span><span class="p">].</span><span class="nx">size</span><span class="p">,</span>
+  <span class="nx">filename</span><span class="p">:</span>  <span class="nx">data</span><span class="p">.</span><span class="nx">files</span><span class="p">[</span><span class="mi">0</span><span class="p">].</span><span class="nx">name</span><span class="p">.</span><span class="nx">match</span><span class="p">(</span><span class="sr">/</span><span class="se">[^\/\\]</span><span class="sr">*$/</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+  <span class="nl">mime_type</span><span class="p">:</span> <span class="nx">data</span><span class="p">.</span><span class="nx">files</span><span class="p">[</span><span class="mi">0</span><span class="p">].</span><span class="nx">type</span>
+<span class="p">}</span>
+</code></pre>
+<h4 id="post-form-parameters">Post Form Parameters</h4>
+
+<p>The form post to S3 using the fields get from STEP 1, plus the file data. Please refer the format of the STEP 2 post.</p>
+
+<h3 id="step-3">STEP 3</h3>
+
+<p>Upload the attributes of this photo, including the S3 ID, to tango.</p>
+
+<h4 id="http-request">HTTP Request</h4>
+
+<p><code class="prettyprint">POST http://tango.avetics.com/api/v1/projects/&lt;ID&gt;/photos</code></p>
+
+<blockquote>
+<p>STEP3 JSON data format for photo request:</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"photo"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"file"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"id-of-s3-file"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"storage"</span><span class="p">:</span><span class="w"> </span><span class="s2">"cache"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"metadata"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="nt">"size"</span><span class="p">:</span><span class="w">      </span><span class="s2">"file-size"</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"filename"</span><span class="p">:</span><span class="w">  </span><span class="s2">"file-name"</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"mime_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"file-type"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<h3 id="post-form-parameters">Post Form Parameters</h3>
+
+<p>refer the JSON data format for photo.</p>
+
           <h1 id="errors">Errors</h1>
-
-<aside class="notice">This error section is stored in a separate file in `includes/_errors.md`. Slate allows you to optionally separate out your docs into many files&hellip;just save them to the `includes` folder and add them to the top of your `index.md`&rsquo;s frontmatter. Files are included in the order listed.</aside>
-
-<p>The Kittn API uses the following error codes:</p>
 
 <table><thead>
 <tr>
@@ -291,57 +494,28 @@ Remember — a happy kitten is an authenticated kitten!
 </thead><tbody>
 <tr>
 <td>400</td>
-<td>Bad Request &ndash; Your request sucks</td>
+<td>Bad Request &ndash; Your request not working ?</td>
 </tr>
 <tr>
 <td>401</td>
-<td>Unauthorized &ndash; Your API key is wrong</td>
+<td>Unauthorized &ndash; You are not authroized to this action</td>
 </tr>
 <tr>
 <td>403</td>
-<td>Forbidden &ndash; The kitten requested is hidden for administrators only</td>
+<td>Forbidden &ndash; The information requested is hidden for administrators only</td>
 </tr>
 <tr>
 <td>404</td>
-<td>Not Found &ndash; The specified kitten could not be found</td>
-</tr>
-<tr>
-<td>405</td>
-<td>Method Not Allowed &ndash; You tried to access a kitten with an invalid method</td>
-</tr>
-<tr>
-<td>406</td>
-<td>Not Acceptable &ndash; You requested a format that isn&rsquo;t json</td>
-</tr>
-<tr>
-<td>410</td>
-<td>Gone &ndash; The kitten requested has been removed from our servers</td>
-</tr>
-<tr>
-<td>418</td>
-<td>I&rsquo;m a teapot</td>
-</tr>
-<tr>
-<td>429</td>
-<td>Too Many Requests &ndash; You&rsquo;re requesting too many kittens! Slow down!</td>
+<td>Not Found &ndash; The specified record could not be found</td>
 </tr>
 <tr>
 <td>500</td>
-<td>Internal Server Error &ndash; We had a problem with our server. Try again later.</td>
-</tr>
-<tr>
-<td>503</td>
-<td>Service Unavailable &ndash; We&rsquo;re temporarially offline for maintanance. Please try again later.</td>
+<td>Internal Server Error &ndash; We had a problem with our server. Try again later or contact us to report this issue.</td>
 </tr>
 </tbody></table>
 
       </div>
       <div class="dark-box">
-          <div class="lang-selector">
-                <a href="#" data-language-name="shell">shell</a>
-                <a href="#" data-language-name="ruby">ruby</a>
-                <a href="#" data-language-name="python">python</a>
-          </div>
       </div>
     </div>
   </body>
